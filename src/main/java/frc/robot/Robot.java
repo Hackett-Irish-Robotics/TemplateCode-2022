@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+//TEST CHANGE
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.motorcontrol.*;
 import edu.wpi.first.wpilibj.XboxController;
@@ -41,23 +42,25 @@ public class Robot extends TimedRobot {
     shooterRight = new PWMVictorSPX(Constants.rightShooterMotor);
         
     //Define the intake
-    intake = new PWMVictorSPX(Constants.intakeMotor);
+    intake = new PWMVictorSPX(Constants.intakeMotor);\
+
+    
   }
 
   @Override
   public void teleopPeriodic() {
 
     // xbox controller A button shoots
-    if (xbox1.getAButton())
+    if (xbox2.getAButton())
     {
        shooterLeft.set(-1);    
-       shooterRight.set(1);
+       shooterRight.set(-1);
     }
     // Xbox controller B Button reverses shooter (in case ball gets stuck in intake)
-    else if (xbox1.getBButton())
+    else if (xbox2.getBButton())
     {
       shooterLeft.set(0.2);  
-      shooterRight.set(-0.2);
+      shooterRight.set(0.2);
     }
     // Else the shooter motors stop
     else
